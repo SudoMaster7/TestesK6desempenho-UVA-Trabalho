@@ -1,0 +1,174 @@
+=====================================================================
+ EXPLAIN (ANALYZE, BUFFERS) - COM INDICE (idx_pedido_cliente_data, idx_pedido_data_status)
+ data: 2026-11-23 10:28:18
+=====================================================================
+
+--- indices existentes na tabela pedido ---
+        indexname        |                                             indexdef                                             
+-------------------------+--------------------------------------------------------------------------------------------------
+ idx_pedido_cliente_data | CREATE INDEX idx_pedido_cliente_data ON public.pedido USING btree (cliente_id, data_pedido DESC)
+ idx_pedido_data_status  | CREATE INDEX idx_pedido_data_status ON public.pedido USING btree (data_pedido, status)
+ pedido_pkey             | CREATE UNIQUE INDEX pedido_pkey ON public.pedido USING btree (id)
+(3 rows)
+
+--- tamanho da tabela + indices ---
+ heap  | indices | total 
+-------+---------+-------
+ 39 MB | 32 MB   | 71 MB
+(1 row)
+
+
+####################################################################
+# CONSULTA 1: cliente_id = 150 ORDER BY data_pedido DESC LIMIT 50
+####################################################################
+SQL: SELECT * FROM pedido WHERE cliente_id = 150 ORDER BY data_pedido DESC LIMIT 50;
+
+[execucao 0 - AQUECIMENTO, descartada]
+----------------- repeticao 1 de 5 -----------------
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..18.28 rows=15 width=38) (actual time=0.043..0.110 rows=13 loops=1)
+   Buffers: shared hit=19
+   ->  Index Scan using idx_pedido_cliente_data on pedido  (cost=0.42..18.28 rows=15 width=38) (actual time=0.042..0.107 rows=13 loops=1)
+         Index Cond: (cliente_id = 150)
+         Buffers: shared hit=19
+ Planning:
+   Buffers: shared hit=145
+ Planning Time: 1.357 ms
+ Execution Time: 0.187 ms
+(9 rows)
+
+----------------- repeticao 2 de 5 -----------------
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..18.28 rows=15 width=38) (actual time=0.044..0.122 rows=13 loops=1)
+   Buffers: shared hit=19
+   ->  Index Scan using idx_pedido_cliente_data on pedido  (cost=0.42..18.28 rows=15 width=38) (actual time=0.043..0.120 rows=13 loops=1)
+         Index Cond: (cliente_id = 150)
+         Buffers: shared hit=19
+ Planning:
+   Buffers: shared hit=145
+ Planning Time: 1.062 ms
+ Execution Time: 0.195 ms
+(9 rows)
+
+----------------- repeticao 3 de 5 -----------------
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..18.28 rows=15 width=38) (actual time=0.087..0.187 rows=13 loops=1)
+   Buffers: shared hit=19
+   ->  Index Scan using idx_pedido_cliente_data on pedido  (cost=0.42..18.28 rows=15 width=38) (actual time=0.085..0.183 rows=13 loops=1)
+         Index Cond: (cliente_id = 150)
+         Buffers: shared hit=19
+ Planning:
+   Buffers: shared hit=145
+ Planning Time: 1.398 ms
+ Execution Time: 0.329 ms
+(9 rows)
+
+----------------- repeticao 4 de 5 -----------------
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..18.28 rows=15 width=38) (actual time=0.066..0.145 rows=13 loops=1)
+   Buffers: shared hit=19
+   ->  Index Scan using idx_pedido_cliente_data on pedido  (cost=0.42..18.28 rows=15 width=38) (actual time=0.063..0.141 rows=13 loops=1)
+         Index Cond: (cliente_id = 150)
+         Buffers: shared hit=19
+ Planning:
+   Buffers: shared hit=145
+ Planning Time: 1.181 ms
+ Execution Time: 0.233 ms
+(9 rows)
+
+----------------- repeticao 5 de 5 -----------------
+                                                                QUERY PLAN                                                                
+------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..18.28 rows=15 width=38) (actual time=0.070..0.171 rows=13 loops=1)
+   Buffers: shared hit=19
+   ->  Index Scan using idx_pedido_cliente_data on pedido  (cost=0.42..18.28 rows=15 width=38) (actual time=0.067..0.167 rows=13 loops=1)
+         Index Cond: (cliente_id = 150)
+         Buffers: shared hit=19
+ Planning:
+   Buffers: shared hit=145
+ Planning Time: 1.485 ms
+ Execution Time: 0.271 ms
+(9 rows)
+
+
+####################################################################
+# CONSULTA 2: data_pedido BETWEEN ... AND status = 'PAGO'
+####################################################################
+SQL: SELECT * FROM pedido WHERE data_pedido BETWEEN '2024-06-01' AND '2024-06-30' AND status = 'PAGO' ORDER BY data_pedido DESC LIMIT 50;
+
+[execucao 0 - AQUECIMENTO, descartada]
+----------------- repeticao 1 de 5 -----------------
+                                                                                              QUERY PLAN                                                                                               
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..49.21 rows=50 width=38) (actual time=0.027..0.286 rows=50 loops=1)
+   Buffers: shared hit=55
+   ->  Index Scan Backward using idx_pedido_data_status on pedido  (cost=0.42..2448.66 rows=2509 width=38) (actual time=0.026..0.282 rows=50 loops=1)
+         Index Cond: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+         Buffers: shared hit=55
+ Planning:
+   Buffers: shared hit=150
+ Planning Time: 1.075 ms
+ Execution Time: 0.314 ms
+(9 rows)
+
+----------------- repeticao 2 de 5 -----------------
+                                                                                              QUERY PLAN                                                                                               
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..49.21 rows=50 width=38) (actual time=0.035..0.282 rows=50 loops=1)
+   Buffers: shared hit=55
+   ->  Index Scan Backward using idx_pedido_data_status on pedido  (cost=0.42..2448.66 rows=2509 width=38) (actual time=0.034..0.276 rows=50 loops=1)
+         Index Cond: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+         Buffers: shared hit=55
+ Planning:
+   Buffers: shared hit=150
+ Planning Time: 2.003 ms
+ Execution Time: 0.324 ms
+(9 rows)
+
+----------------- repeticao 3 de 5 -----------------
+                                                                                              QUERY PLAN                                                                                               
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..49.21 rows=50 width=38) (actual time=0.028..0.254 rows=50 loops=1)
+   Buffers: shared hit=55
+   ->  Index Scan Backward using idx_pedido_data_status on pedido  (cost=0.42..2448.66 rows=2509 width=38) (actual time=0.027..0.250 rows=50 loops=1)
+         Index Cond: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+         Buffers: shared hit=55
+ Planning:
+   Buffers: shared hit=150
+ Planning Time: 1.028 ms
+ Execution Time: 0.289 ms
+(9 rows)
+
+----------------- repeticao 4 de 5 -----------------
+                                                                                              QUERY PLAN                                                                                               
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..49.21 rows=50 width=38) (actual time=0.041..0.272 rows=50 loops=1)
+   Buffers: shared hit=55
+   ->  Index Scan Backward using idx_pedido_data_status on pedido  (cost=0.42..2448.66 rows=2509 width=38) (actual time=0.039..0.267 rows=50 loops=1)
+         Index Cond: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+         Buffers: shared hit=55
+ Planning:
+   Buffers: shared hit=150
+ Planning Time: 1.267 ms
+ Execution Time: 0.311 ms
+(9 rows)
+
+----------------- repeticao 5 de 5 -----------------
+                                                                                              QUERY PLAN                                                                                               
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=0.42..49.21 rows=50 width=38) (actual time=0.027..0.256 rows=50 loops=1)
+   Buffers: shared hit=55
+   ->  Index Scan Backward using idx_pedido_data_status on pedido  (cost=0.42..2448.66 rows=2509 width=38) (actual time=0.026..0.251 rows=50 loops=1)
+         Index Cond: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+         Buffers: shared hit=55
+ Planning:
+   Buffers: shared hit=150
+ Planning Time: 1.114 ms
+ Execution Time: 0.293 ms
+(9 rows)
+
+

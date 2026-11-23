@@ -1,0 +1,49 @@
+=====================================================================
+ CACHE SEM INVALIDACAO - risco de dado desatualizado (stale read)
+ profile: cache-sem-invalidacao   TTL: 15s   produto: 20
+=====================================================================
+
+--- 1) leitura inicial (MISS, popula o cache) ---
+{"id":20,"nome":"Produto 20","sku":"SKU-000020","preco":785.20,"estoque":91,"categoriaId":20,"categoriaNome":"Categoria 20"}
+    preco em cache: "preco":785.20
+
+--- 2) PUT grava 555.55 no BANCO (sem invalidar o cache) ---
+    valor REAL no banco (endpoint /sem-cache):
+{"id":20,"nome":"Produto 20","sku":"SKU-000020","preco":555.55,"estoque":3,"categoriaId":20,"categoriaNome":"Categoria 20"}
+
+--- 3) leitura com cache: AQUI ESTA O PROBLEMA ---
+    o cliente recebe o preco ANTIGO, nao o 555.55 gravado no banco:
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 0
+X-Response-Time-Ms: 7.67
+X-Cache: HIT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:15:08 GMT
+
+{"id":20,"nome":"Produto 20","sku":"SKU-000020","preco":785.20,"estoque":91,"categoriaId":20,"categoriaNome":"Categoria 20"}
+
+--- 4) aguardando o TTL expirar para o dado se corrigir sozinho ---
+    TTL restante: 14s
+    leitura apos a expiracao (agora MISS -> le o banco -> 555.55):
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 1
+X-Response-Time-Ms: 19.08
+X-Cache: MISS
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:15:25 GMT
+
+{"id":20,"nome":"Produto 20","sku":"SKU-000020","preco":555.55,"estoque":3,"categoriaId":20,"categoriaNome":"Categoria 20"}
+
+CONCLUSAO: sem invalidacao ativa, a janela de inconsistencia e igual ao
+TTL. Para preco/estoque isso significa vender por um valor errado ate o
+TTL vencer -- motivo pelo qual o projeto usa TTL curto + @CacheEvict.
+
+FIM. Saida salva em results/cache/sem-invalidacao.txt

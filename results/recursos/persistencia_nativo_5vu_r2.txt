@@ -1,0 +1,6 @@
+# persistencia_nativo_5vu_r2  (12:22:27)
+a2-postgres	26.76%	169.6MiB / 1.5GiB
+a2-redis	0.54%	5.352MiB / 384MiB
+# persistencia_nativo_5vu_r2  (12:22:54)
+a2-postgres	0.01%	168.2MiB / 1.5GiB
+a2-redis	0.59%	5.719MiB / 384MiB

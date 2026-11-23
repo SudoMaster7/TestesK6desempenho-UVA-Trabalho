@@ -1,0 +1,6 @@
+# persistencia_dto_5vu_r1  (12:01:47)
+a2-postgres	0.00%	165.1MiB / 1.5GiB
+a2-redis	0.48%	5.582MiB / 384MiB
+# persistencia_dto_5vu_r1  (12:02:14)
+a2-postgres	0.00%	166.9MiB / 1.5GiB
+a2-redis	0.61%	5.527MiB / 384MiB

@@ -1,0 +1,35 @@
+time="2026-11-23T12:29:39-03:00" level=warning msg="There were unknown fields in the options exported in the script" error="json: unknown field \"gracefulStop\""
+
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.25' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 10058   401.520233/s
+    checks_succeeded...: 100.00% 10058 out of 10058
+    checks_failed......: 0.00%   0 out of 10058
+
+    ✓ status 200
+
+    HTTP
+    http_req_duration..............: avg=60.67ms min=12.35ms med=48.61ms p(90)=112.04ms p(95)=147.22ms p(99)=219.08ms max=576.17ms
+      { expected_response:true }...: avg=60.67ms min=12.35ms med=48.61ms p(90)=112.04ms p(95)=147.22ms p(99)=219.08ms max=576.17ms
+    http_req_failed................: 0.00%  0 out of 10058
+    http_reqs......................: 10058  401.520233/s
+
+    EXECUTION
+    iteration_duration.............: avg=62.06ms min=12.35ms med=49.87ms p(90)=114.29ms p(95)=149.29ms p(99)=220.14ms max=613.64ms
+    iterations.....................: 10058  401.520233/s
+    vus............................: 25     min=25         max=25
+    vus_max........................: 25     min=25         max=25
+
+    NETWORK
+    data_received..................: 99 MB  4.0 MB/s
+    data_sent......................: 1.0 MB 41 kB/s
+
+
+

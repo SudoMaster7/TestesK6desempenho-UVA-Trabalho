@@ -1,0 +1,6 @@
+# persistencia_lazy_5vu_r3  (12:38:14)
+a2-postgres	0.00%	168.5MiB / 1.5GiB
+a2-redis	0.41%	4.477MiB / 384MiB
+# persistencia_lazy_5vu_r3  (12:38:41)
+a2-postgres	0.03%	167.2MiB / 1.5GiB
+a2-redis	2.52%	5.438MiB / 384MiB

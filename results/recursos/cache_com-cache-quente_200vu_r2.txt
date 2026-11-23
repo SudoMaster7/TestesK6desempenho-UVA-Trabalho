@@ -1,0 +1,6 @@
+# cache_com-cache-quente_200vu_r2  (11:40:36)
+a2-postgres	0.02%	154.7MiB / 1.5GiB
+a2-redis	0.65%	4.863MiB / 384MiB
+# cache_com-cache-quente_200vu_r2  (11:41:04)
+a2-postgres	2.74%	155MiB / 1.5GiB
+a2-redis	2.74%	6.438MiB / 384MiB

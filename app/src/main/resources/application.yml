@@ -25,7 +25,13 @@ spring:
       ddl-auto: none      # o schema vem dos scripts em db/, nunca do Hibernate
     properties:
       hibernate:
-        generate_statistics: true     # habilita as metricas internas do Hibernate
+        # ATENCAO: generate_statistics liga o StatisticalLoggingSessionEventListener,
+        # que imprime um bloco "Session Metrics" POR SESSAO. Sob carga isso gerou
+        # 34 MB de log em poucos minutos e o I/O entrou no tempo de resposta --
+        # justamente a distorcao que o item 6.5 manda evitar. Mantemos as
+        # estatisticas (uteis via Actuator) mas SILENCIAMOS o listener no bloco
+        # `logging` abaixo.
+        generate_statistics: true
         format_sql: true
         jdbc:
           batch_size: 50
@@ -67,6 +73,9 @@ logging:
     br.uva.aos: INFO
     # Logar SQL distorce a medicao de carga: so e ligado no profile sql-log.
     net.ttddyy.dsproxy.listener: WARN
+    # Silencia o "Session Metrics" por requisicao (ver comentario em generate_statistics).
+    org.hibernate.engine.internal.StatisticalLoggingSessionEventListener: WARN
+    org.hibernate.stat: WARN
 
 ---
 # Profile sql-log: imprime o SQL de cada requisicao. USAR SO EM DEMONSTRACAO,

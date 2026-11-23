@@ -1,0 +1,15 @@
+CREATE INDEX
+CREATE INDEX
+ANALYZE
+        indexname        |                                             indexdef                                             
+-------------------------+--------------------------------------------------------------------------------------------------
+ idx_pedido_cliente_data | CREATE INDEX idx_pedido_cliente_data ON public.pedido USING btree (cliente_id, data_pedido DESC)
+ idx_pedido_data_status  | CREATE INDEX idx_pedido_data_status ON public.pedido USING btree (data_pedido, status)
+ pedido_pkey             | CREATE UNIQUE INDEX pedido_pkey ON public.pedido USING btree (id)
+(3 rows)
+
+ tamanho_total_pedido 
+----------------------
+ 71 MB
+(1 row)
+

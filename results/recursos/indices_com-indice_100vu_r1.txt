@@ -1,0 +1,6 @@
+# indices_com-indice_100vu_r1  (11:24:32)
+a2-postgres	0.12%	158.8MiB / 1.5GiB
+a2-redis	0.51%	4.906MiB / 384MiB
+# indices_com-indice_100vu_r1  (11:25:00)
+a2-postgres	0.01%	159.1MiB / 1.5GiB
+a2-redis	2.69%	5.516MiB / 384MiB

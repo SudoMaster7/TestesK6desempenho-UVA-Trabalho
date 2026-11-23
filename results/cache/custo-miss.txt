@@ -1,0 +1,18 @@
+======================================================================
+ O CACHE SEMPRE MELHORA? - medicao deterministica (100% MISS)
+ 2026-11-23 16:15:49   |   60 repeticoes por variante
+======================================================================
+
+Contexto medido que motivou este teste:
+{"hits":0,"misses":0,"evictions":0,"acessosBanco":0,"totalConsultasComCache":0,"hitRatio":0.0}
+
+variante                                          n     media   mediana       p95
+----------------------------------------------------------------------------------
+sem cache (1 ida: banco)                         60     9.23ms     8.53ms    14.78ms
+com cache - MISS (3 idas: Redis+banco+Redis)     60    16.67ms    15.71ms    22.73ms
+com cache - HIT (1 ida: Redis)                   60     7.56ms     5.93ms     9.74ms
+
+CONCLUSAO (medianas, menos sensiveis a outliers que a media):
+  MISS vs sem cache : 15.71 ms vs 8.53 ms  -> o cache CUSTA 7.19 ms por requisicao sem reuso
+  HIT  vs sem cache : 5.93 ms vs 8.53 ms  -> 1.4x mais rapido quando ha reuso
+  PONTO DE EQUILIBRIO: cada MISS precisa ser seguido de ~2.8 HIT(s) para o cache compensar.

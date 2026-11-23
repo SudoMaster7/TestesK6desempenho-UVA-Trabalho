@@ -1,0 +1,175 @@
+=== Configuracao: niveis=[10 50 100 200] repeticoes=3 duracao=25s aquecimento=8s ===
+=== Persistencia: niveis=[5 10 25 50] limite=20 ===
+=== Volume de dados no banco (registrado conforme item 6.5): ===
+{"categoria":20,"produto":2000,"cliente":20000,"pedido":300000,"item_pedido":1050000,"indicesPedido":["idx_pedido_cliente_data","idx_pedido_data_status","pedido_pkey"]}
+
+
+############ REPETICAO 1 | 10 VUs ############
+----> cache_sem-cache_10vu_r1
+----> cache_com-cache-quente_10vu_r1
+----> cache_com-cache-frio_10vu_r1
+----> indices_sem-indice_10vu_r1
+----> indices_com-indice_10vu_r1
+
+############ REPETICAO 1 | 50 VUs ############
+----> cache_sem-cache_50vu_r1
+----> cache_com-cache-quente_50vu_r1
+----> cache_com-cache-frio_50vu_r1
+----> indices_sem-indice_50vu_r1
+----> indices_com-indice_50vu_r1
+
+############ REPETICAO 1 | 100 VUs ############
+----> cache_sem-cache_100vu_r1
+----> cache_com-cache-quente_100vu_r1
+----> cache_com-cache-frio_100vu_r1
+----> indices_sem-indice_100vu_r1
+----> indices_com-indice_100vu_r1
+
+############ REPETICAO 1 | 200 VUs ############
+----> cache_sem-cache_200vu_r1
+----> cache_com-cache-quente_200vu_r1
+----> cache_com-cache-frio_200vu_r1
+----> indices_sem-indice_200vu_r1
+----> indices_com-indice_200vu_r1
+
+############ REPETICAO 2 | 10 VUs ############
+----> cache_sem-cache_10vu_r2
+----> cache_com-cache-quente_10vu_r2
+----> cache_com-cache-frio_10vu_r2
+----> indices_sem-indice_10vu_r2
+----> indices_com-indice_10vu_r2
+
+############ REPETICAO 2 | 50 VUs ############
+----> cache_sem-cache_50vu_r2
+----> cache_com-cache-quente_50vu_r2
+----> cache_com-cache-frio_50vu_r2
+----> indices_sem-indice_50vu_r2
+----> indices_com-indice_50vu_r2
+
+############ REPETICAO 2 | 100 VUs ############
+----> cache_sem-cache_100vu_r2
+----> cache_com-cache-quente_100vu_r2
+----> cache_com-cache-frio_100vu_r2
+----> indices_sem-indice_100vu_r2
+----> indices_com-indice_100vu_r2
+
+############ REPETICAO 2 | 200 VUs ############
+----> cache_sem-cache_200vu_r2
+----> cache_com-cache-quente_200vu_r2
+----> cache_com-cache-frio_200vu_r2
+----> indices_sem-indice_200vu_r2
+----> indices_com-indice_200vu_r2
+
+############ REPETICAO 3 | 10 VUs ############
+----> cache_sem-cache_10vu_r3
+----> cache_com-cache-quente_10vu_r3
+----> cache_com-cache-frio_10vu_r3
+----> indices_sem-indice_10vu_r3
+----> indices_com-indice_10vu_r3
+
+############ REPETICAO 3 | 50 VUs ############
+----> cache_sem-cache_50vu_r3
+----> cache_com-cache-quente_50vu_r3
+----> cache_com-cache-frio_50vu_r3
+----> indices_sem-indice_50vu_r3
+----> indices_com-indice_50vu_r3
+
+############ REPETICAO 3 | 100 VUs ############
+----> cache_sem-cache_100vu_r3
+----> cache_com-cache-quente_100vu_r3
+----> cache_com-cache-frio_100vu_r3
+----> indices_sem-indice_100vu_r3
+----> indices_com-indice_100vu_r3
+
+############ REPETICAO 3 | 200 VUs ############
+----> cache_sem-cache_200vu_r3
+----> cache_com-cache-quente_200vu_r3
+----> cache_com-cache-frio_200vu_r3
+----> indices_sem-indice_200vu_r3
+----> indices_com-indice_200vu_r3
+
+############ PERSISTENCIA | REPETICAO 1 | 5 VUs ############
+----> persistencia_lazy_5vu_r1
+----> persistencia_eager_5vu_r1
+----> persistencia_join-fetch_5vu_r1
+----> persistencia_entity-graph_5vu_r1
+----> persistencia_batch_5vu_r1
+----> persistencia_dto_5vu_r1
+----> persistencia_nativo_5vu_r1
+
+############ PERSISTENCIA | REPETICAO 1 | 10 VUs ############
+----> persistencia_lazy_10vu_r1
+----> persistencia_eager_10vu_r1
+----> persistencia_join-fetch_10vu_r1
+----> persistencia_entity-graph_10vu_r1
+----> persistencia_batch_10vu_r1
+----> persistencia_dto_10vu_r1
+----> persistencia_nativo_10vu_r1
+
+############ PERSISTENCIA | REPETICAO 1 | 25 VUs ############
+----> persistencia_lazy_25vu_r1
+----> persistencia_eager_25vu_r1
+----> persistencia_join-fetch_25vu_r1
+----> persistencia_entity-graph_25vu_r1
+----> persistencia_batch_25vu_r1
+----> persistencia_dto_25vu_r1
+----> persistencia_nativo_25vu_r1
+
+############ PERSISTENCIA | REPETICAO 1 | 50 VUs ############
+----> persistencia_lazy_50vu_r1
+----> persistencia_eager_50vu_r1
+----> persistencia_join-fetch_50vu_r1
+----> persistencia_entity-graph_50vu_r1
+----> persistencia_batch_50vu_r1
+----> persistencia_dto_50vu_r1
+----> persistencia_nativo_50vu_r1
+
+############ PERSISTENCIA | REPETICAO 2 | 5 VUs ############
+----> persistencia_lazy_5vu_r2
+----> persistencia_eager_5vu_r2
+----> persistencia_join-fetch_5vu_r2
+----> persistencia_entity-graph_5vu_r2
+----> persistencia_batch_5vu_r2
+----> persistencia_dto_5vu_r2
+----> persistencia_nativo_5vu_r2
+
+############ PERSISTENCIA | REPETICAO 2 | 10 VUs ############
+----> persistencia_lazy_10vu_r2
+----> persistencia_eager_10vu_r2
+----> persistencia_join-fetch_10vu_r2
+----> persistencia_entity-graph_10vu_r2
+----> persistencia_batch_10vu_r2
+----> persistencia_dto_10vu_r2
+----> persistencia_nativo_10vu_r2
+
+############ PERSISTENCIA | REPETICAO 2 | 25 VUs ############
+----> persistencia_lazy_25vu_r2
+----> persistencia_eager_25vu_r2
+----> persistencia_join-fetch_25vu_r2
+----> persistencia_entity-graph_25vu_r2
+----> persistencia_batch_25vu_r2
+----> persistencia_dto_25vu_r2
+----> persistencia_nativo_25vu_r2
+
+############ PERSISTENCIA | REPETICAO 2 | 50 VUs ############
+----> persistencia_lazy_50vu_r2
+----> persistencia_eager_50vu_r2
+----> persistencia_join-fetch_50vu_r2
+----> persistencia_entity-graph_50vu_r2
+----> persistencia_batch_50vu_r2
+----> persistencia_dto_50vu_r2
+----> persistencia_nativo_50vu_r2
+
+############ PERSISTENCIA | REPETICAO 3 | 5 VUs ############
+----> persistencia_lazy_5vu_r3
+----> persistencia_eager_5vu_r3
+----> persistencia_join-fetch_5vu_r3
+----> persistencia_entity-graph_5vu_r3
+----> persistencia_batch_5vu_r3
+----> persistencia_dto_5vu_r3
+----> persistencia_nativo_5vu_r3
+
+############ PERSISTENCIA | REPETICAO 3 | 10 VUs ############
+----> persistencia_lazy_10vu_r3
+!! ERRO: aplicacao nao responde em http://localhost:8080. Abortando para nao gerar dado invalido.
+   Verifique results/app.log e rode: bash scripts/app-restart.sh

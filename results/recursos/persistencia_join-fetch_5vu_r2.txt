@@ -1,0 +1,6 @@
+# persistencia_join-fetch_5vu_r2  (12:19:36)
+a2-postgres	0.00%	168.3MiB / 1.5GiB
+a2-redis	0.68%	4.961MiB / 384MiB
+# persistencia_join-fetch_5vu_r2  (12:20:02)
+a2-postgres	0.00%	167.8MiB / 1.5GiB
+a2-redis	0.48%	4.531MiB / 384MiB

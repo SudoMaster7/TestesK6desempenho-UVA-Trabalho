@@ -1,0 +1,6 @@
+# cache_sem-cache_50vu_r2  (11:32:34)
+a2-postgres	0.00%	158MiB / 1.5GiB
+a2-redis	0.52%	4.871MiB / 384MiB
+# cache_sem-cache_50vu_r2  (11:33:01)
+a2-postgres	0.01%	158.2MiB / 1.5GiB
+a2-redis	0.53%	6.25MiB / 384MiB

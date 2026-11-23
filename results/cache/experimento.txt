@@ -1,0 +1,109 @@
+=====================================================================
+ EXPERIMENTO DE CACHE - ITEM 3.4
+ data: 2026-11-23 16:14:27   produto: 10   TTL: 10s
+=====================================================================
+
+--- Estado inicial: limpando o cache (cache frio) ---
+{"status":"cache limpo e contadores zerados","caches":["produtos","categorias"]}
+
+=== PASSO 1: primeira consulta (esperado X-Cache: MISS, X-Query-Count: 1) ===
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 1
+X-Response-Time-Ms: 223.86
+X-Cache: MISS
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:14:27 GMT
+
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":494.69,"estoque":49,"categoriaId":10,"categoriaNome":"Categoria 10"}
+
+=== PASSO 2: repete a consulta (esperado X-Cache: HIT, X-Query-Count: 0) ===
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 0
+X-Response-Time-Ms: 47.39
+X-Cache: HIT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:14:27 GMT
+
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":494.69,"estoque":49,"categoriaId":10,"categoriaNome":"Categoria 10"}
+
+--- Chave gravada no Redis e TTL restante ---
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":494.69,"estoque":49,"categoriaId":10,"categoriaNome":"Categoria 10"}
+TTL (segundos): 9
+
+=== PASSO 3: PUT altera preco/estoque no banco (dispara a invalidacao) ===
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 2
+X-Response-Time-Ms: 62.16
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:14:28 GMT
+
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":1234.56,"estoque":7,"categoriaId":10,"categoriaNome":"Categoria 10"}
+
+--- A chave deve ter sido REMOVIDA do Redis (TTL -2 = inexistente) ---
+TTL apos o PUT: -2
+
+=== PASSO 4: consulta de novo (esperado MISS + preco ATUALIZADO = 1234.56) ===
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 1
+X-Response-Time-Ms: 13.58
+X-Cache: MISS
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:14:28 GMT
+
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":1234.56,"estoque":7,"categoriaId":10,"categoriaNome":"Categoria 10"}
+
+--- e mais uma vez, agora HIT com o dado novo ---
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 0
+X-Response-Time-Ms: 4.99
+X-Cache: HIT
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:14:28 GMT
+
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":1234.56,"estoque":7,"categoriaId":10,"categoriaNome":"Categoria 10"}
+
+=== PASSO 5: expiracao por TTL ===
+Valor em cache agora:
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":1234.56,"estoque":7,"categoriaId":10,"categoriaNome":"Categoria 10"}
+TTL restante: 9s -- aguardando a expiracao...
+TTL depois da espera (-2 = chave expirada e removida): -2
+KEYS no Redis: 
+
+Nova consulta apos a expiracao (esperado MISS: o cache precisa ser reconstruido)
+HTTP/1.1 200 
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Query-Count: 1
+X-Response-Time-Ms: 15.97
+X-Cache: MISS
+Content-Type: application/json
+Transfer-Encoding: chunked
+Date: Mon, 23 Nov 2026 19:14:40 GMT
+
+{"id":10,"nome":"Produto 10","sku":"SKU-000010","preco":1234.56,"estoque":7,"categoriaId":10,"categoriaNome":"Categoria 10"}
+
+=== Contadores finais do cache ===
+{"hits":2,"misses":3,"evictions":1,"acessosBanco":3,"totalConsultasComCache":5,"hitRatio":40.0}
+
+FIM. Saida salva em results/cache/experimento.txt

@@ -1,0 +1,15 @@
+psql:/db/11-drop-index.sql:2: NOTICE:  index "idx_pedido_cliente_data" does not exist, skipping
+DROP INDEX
+DROP INDEX
+psql:/db/11-drop-index.sql:3: NOTICE:  index "idx_pedido_data_status" does not exist, skipping
+ANALYZE
+  indexname  |                             indexdef                              
+-------------+-------------------------------------------------------------------
+ pedido_pkey | CREATE UNIQUE INDEX pedido_pkey ON public.pedido USING btree (id)
+(1 row)
+
+ tamanho_total_pedido 
+----------------------
+ 52 MB
+(1 row)
+

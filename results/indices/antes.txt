@@ -1,0 +1,282 @@
+=====================================================================
+ EXPLAIN (ANALYZE, BUFFERS) - SEM INDICE (apenas a PK)
+ data: 2026-11-23 10:28:11
+=====================================================================
+
+--- indices existentes na tabela pedido ---
+  indexname  |                             indexdef                              
+-------------+-------------------------------------------------------------------
+ pedido_pkey | CREATE UNIQUE INDEX pedido_pkey ON public.pedido USING btree (id)
+(1 row)
+
+--- tamanho da tabela + indices ---
+ heap  | indices | total 
+-------+---------+-------
+ 39 MB | 13 MB   | 52 MB
+(1 row)
+
+
+####################################################################
+# CONSULTA 1: cliente_id = 150 ORDER BY data_pedido DESC LIMIT 50
+####################################################################
+SQL: SELECT * FROM pedido WHERE cliente_id = 150 ORDER BY data_pedido DESC LIMIT 50;
+
+[execucao 0 - AQUECIMENTO, descartada]
+----------------- repeticao 1 de 5 -----------------
+                                                          QUERY PLAN                                                           
+-------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=7529.60..7531.00 rows=12 width=38) (actual time=14.617..19.657 rows=13 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=7529.60..7531.00 rows=12 width=38) (actual time=14.612..19.650 rows=13 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=6529.58..6529.59 rows=6 width=38) (actual time=9.082..9.083 rows=4 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: quicksort  Memory: 25kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: quicksort  Memory: 25kB
+               Worker 1:  Sort Method: quicksort  Memory: 25kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..6529.50 rows=6 width=38) (actual time=2.411..8.787 rows=4 loops=3)
+                     Filter: (cliente_id = 150)
+                     Rows Removed by Filter: 99996
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=89
+ Planning Time: 1.596 ms
+ Execution Time: 19.833 ms
+(20 rows)
+
+----------------- repeticao 2 de 5 -----------------
+                                                          QUERY PLAN                                                           
+-------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=7529.60..7531.00 rows=12 width=38) (actual time=13.684..18.673 rows=13 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=7529.60..7531.00 rows=12 width=38) (actual time=13.681..18.666 rows=13 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=6529.58..6529.59 rows=6 width=38) (actual time=9.432..9.434 rows=4 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: quicksort  Memory: 25kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: quicksort  Memory: 25kB
+               Worker 1:  Sort Method: quicksort  Memory: 25kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..6529.50 rows=6 width=38) (actual time=3.281..9.129 rows=4 loops=3)
+                     Filter: (cliente_id = 150)
+                     Rows Removed by Filter: 99996
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=89
+ Planning Time: 0.983 ms
+ Execution Time: 18.876 ms
+(20 rows)
+
+----------------- repeticao 3 de 5 -----------------
+                                                           QUERY PLAN                                                           
+--------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=7529.60..7531.00 rows=12 width=38) (actual time=18.861..22.470 rows=13 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=7529.60..7531.00 rows=12 width=38) (actual time=18.855..22.461 rows=13 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=6529.58..6529.59 rows=6 width=38) (actual time=11.168..11.170 rows=4 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: quicksort  Memory: 25kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: quicksort  Memory: 25kB
+               Worker 1:  Sort Method: quicksort  Memory: 25kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..6529.50 rows=6 width=38) (actual time=3.364..10.641 rows=4 loops=3)
+                     Filter: (cliente_id = 150)
+                     Rows Removed by Filter: 99996
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=89
+ Planning Time: 3.367 ms
+ Execution Time: 22.692 ms
+(20 rows)
+
+----------------- repeticao 4 de 5 -----------------
+                                                          QUERY PLAN                                                           
+-------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=7529.60..7531.00 rows=12 width=38) (actual time=14.314..18.196 rows=13 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=7529.60..7531.00 rows=12 width=38) (actual time=14.311..18.191 rows=13 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=6529.58..6529.59 rows=6 width=38) (actual time=9.451..9.453 rows=4 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: quicksort  Memory: 25kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: quicksort  Memory: 25kB
+               Worker 1:  Sort Method: quicksort  Memory: 25kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..6529.50 rows=6 width=38) (actual time=2.297..9.137 rows=4 loops=3)
+                     Filter: (cliente_id = 150)
+                     Rows Removed by Filter: 99996
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=89
+ Planning Time: 1.278 ms
+ Execution Time: 18.363 ms
+(20 rows)
+
+----------------- repeticao 5 de 5 -----------------
+                                                          QUERY PLAN                                                           
+-------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=7529.60..7531.00 rows=12 width=38) (actual time=12.609..16.438 rows=13 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=7529.60..7531.00 rows=12 width=38) (actual time=12.606..16.433 rows=13 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=6529.58..6529.59 rows=6 width=38) (actual time=8.440..8.442 rows=4 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: quicksort  Memory: 25kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: quicksort  Memory: 25kB
+               Worker 1:  Sort Method: quicksort  Memory: 25kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..6529.50 rows=6 width=38) (actual time=1.786..8.171 rows=4 loops=3)
+                     Filter: (cliente_id = 150)
+                     Rows Removed by Filter: 99996
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=89
+ Planning Time: 1.118 ms
+ Execution Time: 16.600 ms
+(20 rows)
+
+
+####################################################################
+# CONSULTA 2: data_pedido BETWEEN ... AND status = 'PAGO'
+####################################################################
+SQL: SELECT * FROM pedido WHERE data_pedido BETWEEN '2024-06-01' AND '2024-06-30' AND status = 'PAGO' ORDER BY data_pedido DESC LIMIT 50;
+
+[execucao 0 - AQUECIMENTO, descartada]
+----------------- repeticao 1 de 5 -----------------
+                                                                                                  QUERY PLAN                                                                                                   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=8188.81..8194.64 rows=50 width=38) (actual time=16.876..22.426 rows=50 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=8188.81..8429.62 rows=2064 width=38) (actual time=16.869..22.412 rows=50 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=7188.78..7191.36 rows=1032 width=38) (actual time=10.840..10.867 rows=42 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: top-N heapsort  Memory: 30kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: top-N heapsort  Memory: 31kB
+               Worker 1:  Sort Method: top-N heapsort  Memory: 31kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..7154.50 rows=1032 width=38) (actual time=0.943..10.282 rows=815 loops=3)
+                     Filter: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+                     Rows Removed by Filter: 99185
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=102
+ Planning Time: 1.790 ms
+ Execution Time: 22.576 ms
+(20 rows)
+
+----------------- repeticao 2 de 5 -----------------
+                                                                                                  QUERY PLAN                                                                                                   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=8188.81..8194.64 rows=50 width=38) (actual time=13.060..17.979 rows=50 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=8188.81..8429.62 rows=2064 width=38) (actual time=13.057..17.971 rows=50 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=7188.78..7191.36 rows=1032 width=38) (actual time=8.431..8.435 rows=44 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: top-N heapsort  Memory: 30kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: top-N heapsort  Memory: 31kB
+               Worker 1:  Sort Method: top-N heapsort  Memory: 30kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..7154.50 rows=1032 width=38) (actual time=0.805..8.088 rows=815 loops=3)
+                     Filter: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+                     Rows Removed by Filter: 99185
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=102
+ Planning Time: 0.826 ms
+ Execution Time: 18.090 ms
+(20 rows)
+
+----------------- repeticao 3 de 5 -----------------
+                                                                                                  QUERY PLAN                                                                                                   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=8188.81..8194.64 rows=50 width=38) (actual time=12.017..16.679 rows=50 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=8188.81..8429.62 rows=2064 width=38) (actual time=12.015..16.670 rows=50 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=7188.78..7191.36 rows=1032 width=38) (actual time=8.023..8.026 rows=40 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: top-N heapsort  Memory: 30kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: top-N heapsort  Memory: 30kB
+               Worker 1:  Sort Method: top-N heapsort  Memory: 30kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..7154.50 rows=1032 width=38) (actual time=0.803..7.636 rows=815 loops=3)
+                     Filter: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+                     Rows Removed by Filter: 99185
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=102
+ Planning Time: 1.055 ms
+ Execution Time: 16.776 ms
+(20 rows)
+
+----------------- repeticao 4 de 5 -----------------
+                                                                                                  QUERY PLAN                                                                                                   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=8188.81..8194.64 rows=50 width=38) (actual time=11.398..15.904 rows=50 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=8188.81..8429.62 rows=2064 width=38) (actual time=11.395..15.896 rows=50 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=7188.78..7191.36 rows=1032 width=38) (actual time=8.116..8.121 rows=41 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: top-N heapsort  Memory: 30kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: top-N heapsort  Memory: 30kB
+               Worker 1:  Sort Method: top-N heapsort  Memory: 30kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..7154.50 rows=1032 width=38) (actual time=0.692..7.759 rows=815 loops=3)
+                     Filter: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+                     Rows Removed by Filter: 99185
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=102
+ Planning Time: 1.107 ms
+ Execution Time: 16.018 ms
+(20 rows)
+
+----------------- repeticao 5 de 5 -----------------
+                                                                                                  QUERY PLAN                                                                                                   
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ Limit  (cost=8188.81..8194.64 rows=50 width=38) (actual time=12.661..16.750 rows=50 loops=1)
+   Buffers: shared hit=5079
+   ->  Gather Merge  (cost=8188.81..8429.62 rows=2064 width=38) (actual time=12.658..16.741 rows=50 loops=1)
+         Workers Planned: 2
+         Workers Launched: 2
+         Buffers: shared hit=5079
+         ->  Sort  (cost=7188.78..7191.36 rows=1032 width=38) (actual time=8.267..8.270 rows=44 loops=3)
+               Sort Key: data_pedido DESC
+               Sort Method: top-N heapsort  Memory: 30kB
+               Buffers: shared hit=5079
+               Worker 0:  Sort Method: top-N heapsort  Memory: 30kB
+               Worker 1:  Sort Method: top-N heapsort  Memory: 30kB
+               ->  Parallel Seq Scan on pedido  (cost=0.00..7154.50 rows=1032 width=38) (actual time=0.840..7.927 rows=815 loops=3)
+                     Filter: ((data_pedido >= '2024-06-01 00:00:00'::timestamp without time zone) AND (data_pedido <= '2024-06-30 00:00:00'::timestamp without time zone) AND ((status)::text = 'PAGO'::text))
+                     Rows Removed by Filter: 99185
+                     Buffers: shared hit=4967
+ Planning:
+   Buffers: shared hit=102
+ Planning Time: 0.955 ms
+ Execution Time: 16.970 ms
+(20 rows)
+
+

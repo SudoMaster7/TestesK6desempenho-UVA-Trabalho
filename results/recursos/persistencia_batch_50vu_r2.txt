@@ -1,0 +1,6 @@
+# persistencia_batch_50vu_r2  (12:36:04)
+a2-postgres	19.77%	169MiB / 1.5GiB
+a2-redis	0.41%	5.504MiB / 384MiB
+# persistencia_batch_50vu_r2  (12:36:32)
+a2-postgres	0.03%	167.2MiB / 1.5GiB
+a2-redis	0.45%	5.016MiB / 384MiB

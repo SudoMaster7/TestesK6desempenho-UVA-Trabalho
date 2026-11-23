@@ -1,0 +1,37 @@
+time="2026-11-23T11:48:04-03:00" level=warning msg="There were unknown fields in the options exported in the script" error="json: unknown field \"gracefulStop\""
+time="2026-11-23T11:48:11-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/22/com-cache\": dial tcp 127.0.0.1:8080: connectex: Only one usage of each socket address (protocol/network address/port) is normally permitted."
+
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.25' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 147875 5913.529849/s
+    checks_succeeded...: 99.99% 147874 out of 147875
+    checks_failed......: 0.00%  1 out of 147875
+
+    ✗ status 200
+      ↳  99% — ✓ 147874 / ✗ 1
+
+    HTTP
+    http_req_duration..............: avg=8.15ms min=0s     med=7.64ms p(90)=10.65ms p(95)=12.07ms p(99)=16.71ms max=42.03ms
+      { expected_response:true }...: avg=8.15ms min=3.37ms med=7.64ms p(90)=10.65ms p(95)=12.07ms p(99)=16.71ms max=42.03ms
+    http_req_failed................: 0.00%  1 out of 147875
+    http_reqs......................: 147875 5913.529849/s
+
+    EXECUTION
+    iteration_duration.............: avg=8.42ms min=3ms    med=7.87ms p(90)=11.06ms p(95)=12.61ms p(99)=17.69ms max=46.86ms
+    iterations.....................: 147875 5913.529849/s
+    vus............................: 50     min=50          max=50
+    vus_max........................: 50     min=50          max=50
+
+    NETWORK
+    data_received..................: 45 MB  1.8 MB/s
+    data_sent......................: 14 MB  561 kB/s
+
+
+

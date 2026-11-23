@@ -1,0 +1,6 @@
+# indices_sem-indice_50vu_r2  (11:34:44)
+a2-postgres	0.02%	156.7MiB / 1.5GiB
+a2-redis	2.85%	5.801MiB / 384MiB
+# indices_sem-indice_50vu_r2  (11:35:12)
+a2-postgres	0.01%	156.8MiB / 1.5GiB
+a2-redis	0.46%	5.539MiB / 384MiB

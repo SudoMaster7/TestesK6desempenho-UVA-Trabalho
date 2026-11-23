@@ -1,0 +1,6 @@
+# cache_sem-cache_10vu_r3  (11:43:30)
+a2-postgres	0.00%	154.4MiB / 1.5GiB
+a2-redis	0.69%	4.598MiB / 384MiB
+# cache_sem-cache_10vu_r3  (11:43:58)
+a2-postgres	0.01%	153MiB / 1.5GiB
+a2-redis	0.55%	5.68MiB / 384MiB

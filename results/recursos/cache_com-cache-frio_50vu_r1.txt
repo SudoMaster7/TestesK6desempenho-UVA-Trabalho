@@ -1,0 +1,6 @@
+# cache_com-cache-frio_50vu_r1  (11:19:25)
+a2-postgres	0.17%	155.1MiB / 1.5GiB
+a2-redis	0.60%	5.105MiB / 384MiB
+# cache_com-cache-frio_50vu_r1  (11:19:53)
+a2-postgres	3.11%	153.8MiB / 1.5GiB
+a2-redis	2.82%	6.332MiB / 384MiB

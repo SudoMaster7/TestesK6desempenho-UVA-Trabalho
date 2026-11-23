@@ -1,0 +1,6 @@
+# indices_sem-indice_200vu_r1  (11:27:28)
+a2-postgres	0.21%	158.5MiB / 1.5GiB
+a2-redis	2.62%	6.586MiB / 384MiB
+# indices_sem-indice_200vu_r1  (11:27:58)
+a2-postgres	0.02%	156.9MiB / 1.5GiB
+a2-redis	0.66%	4.742MiB / 384MiB

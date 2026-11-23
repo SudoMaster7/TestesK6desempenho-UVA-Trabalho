@@ -1,0 +1,565 @@
+{
+  "info": {
+    "name": "A2 - Otimizacao de Web Services (UVA)",
+    "description": "Colecao do Trabalho Pratico A2. Todos os endpoints devolvem os headers X-Query-Count, X-Response-Time-Ms e X-Cache: confira-os na aba Headers da resposta para comprovar cada fenomeno.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base",
+      "value": "http://localhost:8080"
+    }
+  ],
+  "item": [
+    {
+      "name": "0. Diagnostico e admin",
+      "item": [
+        {
+          "name": "Volume de dados (item 6.5)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/admin/stats",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "stats"
+              ],
+              "query": []
+            },
+            "description": "Contagem por tabela + indices existentes em pedido."
+          }
+        },
+        {
+          "name": "Health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/actuator/health",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "actuator",
+                "health"
+              ],
+              "query": []
+            },
+            "description": "Verifica se a aplicacao subiu."
+          }
+        },
+        {
+          "name": "Limpar cache (cache frio)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/admin/cache",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "cache"
+              ],
+              "query": []
+            },
+            "description": "Usado antes das rodadas que medem MISS."
+          }
+        },
+        {
+          "name": "Estatisticas do cache",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/admin/cache/stats",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "cache",
+                "stats"
+              ],
+              "query": []
+            },
+            "description": "hits, misses, evictions, acessos ao banco e hit ratio."
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. ITEM 1 - Cache",
+      "item": [
+        {
+          "name": "Produto SEM cache",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/produtos/10/sem-cache",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "10",
+                "sem-cache"
+              ],
+              "query": []
+            },
+            "description": "Sempre vai ao banco. Esperado: X-Query-Count 1, X-Cache BYPASS."
+          }
+        },
+        {
+          "name": "Produto COM cache (1a vez = MISS)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/produtos/10/com-cache",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "10",
+                "com-cache"
+              ],
+              "query": []
+            },
+            "description": "1o acesso: X-Cache MISS, X-Query-Count 1."
+          }
+        },
+        {
+          "name": "Produto COM cache (2a vez = HIT)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/produtos/10/com-cache",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "10",
+                "com-cache"
+              ],
+              "query": []
+            },
+            "description": "Repetir: X-Cache HIT e X-Query-Count 0 (banco nao foi tocado)."
+          }
+        },
+        {
+          "name": "Atualizar produto (invalida o cache)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/api/produtos/10",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "produtos",
+                "10"
+              ],
+              "query": []
+            },
+            "description": "Operacao de atualizacao do item 3.4. Com invalidacao ativa, remove a chave do Redis.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"preco\": 1234.56,\n  \"estoque\": 7\n}"
+            }
+          }
+        },
+        {
+          "name": "Categorias SEM cache",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/categorias/sem-cache",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "categorias",
+                "sem-cache"
+              ],
+              "query": []
+            },
+            "description": "Lista de categorias direto do banco."
+          }
+        },
+        {
+          "name": "Categorias COM cache",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/categorias/com-cache",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "categorias",
+                "com-cache"
+              ],
+              "query": []
+            },
+            "description": "TTL de 10 minutos: dado de baixa volatilidade."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. ITEM 2a - LAZY vs EAGER (N+1)",
+      "item": [
+        {
+          "name": "LAZY limite=10",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/lazy?limite=10",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "lazy"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "10"
+                }
+              ]
+            },
+            "description": "LAZY acessando os relacionamentos: provoca N+1."
+          }
+        },
+        {
+          "name": "LAZY limite=100",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/lazy?limite=100",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "lazy"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Compare o X-Query-Count com o limite=10: cresce proporcionalmente."
+          }
+        },
+        {
+          "name": "LAZY limite=500",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/lazy?limite=500",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "lazy"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "500"
+                }
+              ]
+            },
+            "description": "O N+1 escala com o volume."
+          }
+        },
+        {
+          "name": "EAGER limite=100",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/eager?limite=100",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "eager"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Observar que EAGER TAMBEM gera consultas extras (item 4.2)."
+          }
+        },
+        {
+          "name": "LAZY SEM ACESSO limite=1000",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/lazy-sem-acesso?limite=1000",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "lazy-sem-acesso"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "1000"
+                }
+              ]
+            },
+            "description": "A vantagem do LAZY: 1 query, independentemente do limite."
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. ITEM 2b - Consultas otimizadas",
+      "item": [
+        {
+          "name": "JOIN FETCH",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/join-fetch?limite=100",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "join-fetch"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "JPQL com join fetch, padrao de 2 etapas para paginar."
+          }
+        },
+        {
+          "name": "EntityGraph",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/entity-graph?limite=100",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "entity-graph"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Mesmo plano, declarado por atributos."
+          }
+        },
+        {
+          "name": "BatchSize",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/batch?limite=100",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "batch"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "1 + ceil(N/100) queries, sem produto cartesiano."
+          }
+        },
+        {
+          "name": "Projecao DTO",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/dto?limite=100",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "dto"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "Colunas soltas, sem entidades gerenciadas."
+          }
+        },
+        {
+          "name": "SQL nativo (json_agg)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/nativo?limite=100",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "nativo"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "100"
+                }
+              ]
+            },
+            "description": "O banco monta o array de itens; 1 linha por pedido."
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. ITEM 2c - Indices",
+      "item": [
+        {
+          "name": "Pedidos do cliente (consulta-alvo 1)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/clientes/150/pedidos?limite=50",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "clientes",
+                "150",
+                "pedidos"
+              ],
+              "query": [
+                {
+                  "key": "limite",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "WHERE cliente_id = ? ORDER BY data_pedido DESC LIMIT 50. Compare o tempo antes e depois de db/10-create-index.sql."
+          }
+        },
+        {
+          "name": "Pedidos por periodo (consulta-alvo 2)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/api/pedidos/periodo?inicio=2024-06-01T00:00:00&fim=2024-06-30T23:59:59&status=PAGO&limite=50",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "api",
+                "pedidos",
+                "periodo"
+              ],
+              "query": [
+                {
+                  "key": "inicio",
+                  "value": "2024-06-01T00:00:00"
+                },
+                {
+                  "key": "fim",
+                  "value": "2024-06-30T23:59:59"
+                },
+                {
+                  "key": "status",
+                  "value": "PAGO"
+                },
+                {
+                  "key": "limite",
+                  "value": "50"
+                }
+              ]
+            },
+            "description": "Intervalo de datas + status: usa idx_pedido_data_status."
+          }
+        }
+      ]
+    }
+  ]
+}

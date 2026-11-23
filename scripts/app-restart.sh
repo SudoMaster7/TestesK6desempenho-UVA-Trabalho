@@ -2,6 +2,10 @@
 # Sobe (ou reinicia) a aplicacao Spring Boot em background e espera ficar pronta.
 # Uso: scripts/app-restart.sh [profile]
 set -euo pipefail
+# Sem isto, o Git Bash converte argumentos como "/PID" e "/c" em caminhos
+# (C:/Program Files/Git/PID ...): o taskkill falha em silencio e o cmd.exe abre
+# um prompt interativo em vez de subir a aplicacao.
+export MSYS_NO_PATHCONV=1
 cd "$(dirname "$0")/.."
 PROFILE="${1:-}"
 JAVA_HOME_WIN='C:\Program Files\Microsoft\jdk-21.0.13.102-hotspot'
@@ -28,7 +32,7 @@ if [ -n "$PROFILE" ]; then
 fi
 
 cd app
-nohup cmd.exe /c "set JAVA_HOME=$JAVA_HOME_WIN&& mvnw.cmd -B -DskipTests $ARGS spring-boot:run" \
+nohup cmd.exe /c "set JAVA_HOME=$JAVA_HOME_WIN&& .\mvnw.cmd -B -DskipTests $ARGS spring-boot:run" \
   > ../results/app.log 2>&1 &
 
 echo ">> aguardando /actuator/health"

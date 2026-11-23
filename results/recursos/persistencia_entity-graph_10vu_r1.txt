@@ -1,0 +1,6 @@
+# persistencia_entity-graph_10vu_r1  (12:05:21)
+a2-postgres	0.00%	157.8MiB / 1.5GiB
+a2-redis	0.57%	4.305MiB / 384MiB
+# persistencia_entity-graph_10vu_r1  (12:05:49)
+a2-postgres	0.00%	156.4MiB / 1.5GiB
+a2-redis	0.44%	5.535MiB / 384MiB

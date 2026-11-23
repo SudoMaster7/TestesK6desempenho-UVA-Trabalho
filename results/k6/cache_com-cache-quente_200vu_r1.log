@@ -1,0 +1,143 @@
+time="2026-11-23T11:26:02-03:00" level=warning msg="There were unknown fields in the options exported in the script" error="json: unknown field \"gracefulStop\""
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/29/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/25/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/14/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/22/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/31/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/31/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/18/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/31/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/16/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/17/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/28/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/37/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/45/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/21/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/15/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/45/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/16/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/41/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/43/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/50/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/28/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/36/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/13/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/33/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/6/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/36/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/31/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/31/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/13/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/7/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/28/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/30/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/43/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/6/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/49/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/32/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/42/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/14/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/16/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/31/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/11/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/49/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/13/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/31/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/11/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/17/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/33/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/26/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/10/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/10/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/49/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/24/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/18/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/36/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/4/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/39/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/50/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/15/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/43/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/32/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/35/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/17/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/35/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/35/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/20/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/25/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/4/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/49/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/22/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/16/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/33/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/40/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/24/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/3/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/36/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/25/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/11/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/44/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/49/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/14/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/24/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/15/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/8/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/42/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/28/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/39/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/48/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/47/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/3/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/13/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/12/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/16/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/3/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/14/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/2/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/20/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/24/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/10/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/33/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/2/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/4/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/45/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/11/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/14/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/20/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/19/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:26:02-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/produtos/34/com-cache\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.25' rate=0.05%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 178677 7141.17619/s
+    checks_succeeded...: 99.94% 178570 out of 178677
+    checks_failed......: 0.05%  107 out of 178677
+
+    ✗ status 200
+      ↳  99% — ✓ 178570 / ✗ 107
+
+    HTTP
+    http_req_duration..............: avg=27.63ms min=0s      med=26.42ms p(90)=35.89ms p(95)=40.54ms p(99)=50.58ms max=124.27ms
+      { expected_response:true }...: avg=27.64ms min=4.02ms  med=26.42ms p(90)=35.89ms p(95)=40.54ms p(99)=50.59ms max=124.27ms
+    http_req_failed................: 0.05%  107 out of 178677
+    http_reqs......................: 178677 7141.17619/s
+
+    EXECUTION
+    iteration_duration.............: avg=27.95ms min=558.1µs med=26.64ms p(90)=36.35ms p(95)=41.12ms p(99)=51.74ms max=124.27ms
+    iterations.....................: 178677 7141.17619/s
+    vus............................: 200    min=200           max=200
+    vus_max........................: 200    min=200           max=200
+
+    NETWORK
+    data_received..................: 55 MB  2.2 MB/s
+    data_sent......................: 17 MB  677 kB/s
+
+
+

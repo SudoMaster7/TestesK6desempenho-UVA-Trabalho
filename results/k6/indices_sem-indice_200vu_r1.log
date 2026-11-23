@@ -1,0 +1,58 @@
+time="2026-11-23T11:27:30-03:00" level=warning msg="There were unknown fields in the options exported in the script" error="json: unknown field \"gracefulStop\""
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/10151/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/593/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/14181/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/244/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/603/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/10665/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/11902/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/951/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/7352/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/9894/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/10596/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/7007/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/11856/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/1164/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/6272/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/17723/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/5193/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/12798/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/18782/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/14736/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/14896/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+time="2026-11-23T11:27:30-03:00" level=warning msg="Request Failed" error="Get \"http://localhost:8080/api/clientes/2770/pedidos?limite=50\": dial tcp 127.0.0.1:8080: connectex: No connection could be made because the target machine actively refused it."
+
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.25' rate=1.63%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 1593   56.230363/s
+    checks_succeeded...: 98.36% 1567 out of 1593
+    checks_failed......: 1.63%  26 out of 1593
+
+    ✗ status 200
+      ↳  98% — ✓ 1567 / ✗ 26
+
+    HTTP
+    http_req_duration..............: avg=3.35s min=0s       med=3.59s p(90)=6.7s p(95)=6.9s  p(99)=10.09s max=10.49s
+      { expected_response:true }...: avg=3.38s min=111.74ms med=3.59s p(90)=6.7s p(95)=6.89s p(99)=10.09s max=10.49s
+    http_req_failed................: 1.63%  26 out of 1593
+    http_reqs......................: 1593   56.230363/s
+
+    EXECUTION
+    iteration_duration.............: avg=3.35s min=542.69µs med=3.59s p(90)=6.7s p(95)=6.9s  p(99)=10.09s max=10.49s
+    iterations.....................: 1593   56.230363/s
+    vus............................: 29     min=29         max=200
+    vus_max........................: 200    min=200        max=200
+
+    NETWORK
+    data_received..................: 2.7 MB 96 kB/s
+    data_sent......................: 166 kB 5.8 kB/s
+
+
+

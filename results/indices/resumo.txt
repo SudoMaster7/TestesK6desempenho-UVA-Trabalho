@@ -1,0 +1,18 @@
+================== RESUMO (extraido de antes.txt / depois.txt) ==================
+
+### antes
+-- tipos de no de acesso encontrados:
+     30 Sort Method
+     10 Sort Key
+     10 Sort  
+     10 Seq Scan on pedido  
+-- tempos de execucao medidos (ms):
+19.833 18.876 22.692 18.363 16.600 22.576 18.090 16.776 16.018 16.970 
+
+### depois
+-- tipos de no de acesso encontrados:
+      5 Index Scan using idx
+      5 Index Scan Backward using idx
+-- tempos de execucao medidos (ms):
+0.187 0.195 0.329 0.233 0.271 0.314 0.324 0.289 0.311 0.293 
+

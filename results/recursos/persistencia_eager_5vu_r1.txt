@@ -1,0 +1,6 @@
+# persistencia_eager_5vu_r1  (11:58:57)
+a2-postgres	0.00%	158.6MiB / 1.5GiB
+a2-redis	2.68%	5.5MiB / 384MiB
+# persistencia_eager_5vu_r1  (11:59:25)
+a2-postgres	2.93%	160.7MiB / 1.5GiB
+a2-redis	0.56%	5.043MiB / 384MiB

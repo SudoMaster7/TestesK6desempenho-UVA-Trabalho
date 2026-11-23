@@ -1,0 +1,36 @@
+time="2026-11-23T11:39:10-03:00" level=warning msg="There were unknown fields in the options exported in the script" error="json: unknown field \"gracefulStop\""
+time="2026-11-23T11:39:18-03:00" level=warning msg="The test has generated metrics with 100258 unique time series, which is higher than the suggested limit of 100000 and could cause high memory usage. Consider not using high-cardinality values like unique IDs as metric tags or, if you need them in the URL, use the name metric tag or URL grouping. See https://grafana.com/docs/k6/latest/using-k6/tags-and-groups/ for details." component=metrics-engine-ingester
+
+
+  █ THRESHOLDS 
+
+    http_req_failed
+    ✓ 'rate<0.25' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 52931   2113.834731/s
+    checks_succeeded...: 100.00% 52931 out of 52931
+    checks_failed......: 0.00%   0 out of 52931
+
+    ✓ status 200
+
+    HTTP
+    http_req_duration..............: avg=46.55ms min=3.9ms med=42.45ms p(90)=86.74ms p(95)=106.12ms p(99)=154.95ms max=439.53ms
+      { expected_response:true }...: avg=46.55ms min=3.9ms med=42.45ms p(90)=86.74ms p(95)=106.12ms p(99)=154.95ms max=439.53ms
+    http_req_failed................: 0.00%  0 out of 52931
+    http_reqs......................: 52931  2113.834731/s
+
+    EXECUTION
+    iteration_duration.............: avg=47.2ms  min=3.9ms med=42.95ms p(90)=87.53ms p(95)=106.81ms p(99)=155.76ms max=439.53ms
+    iterations.....................: 52931  2113.834731/s
+    vus............................: 100    min=100        max=100
+    vus_max........................: 100    min=100        max=100
+
+    NETWORK
+    data_received..................: 93 MB  3.7 MB/s
+    data_sent......................: 5.6 MB 223 kB/s
+
+
+
