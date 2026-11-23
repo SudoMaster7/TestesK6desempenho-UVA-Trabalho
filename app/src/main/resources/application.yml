@@ -1,0 +1,92 @@
+server:
+  port: 8080
+  tomcat:
+    threads:
+      max: 200
+
+spring:
+  application:
+    name: a2-otimizacao
+
+  datasource:
+    url: jdbc:postgresql://localhost:55432/vendas
+    username: a2
+    password: a2pass
+    hikari:
+      # Pool fixo: pool elastico faz a latencia variar entre rodadas de carga
+      # e contamina a comparacao entre as estrategias.
+      maximum-pool-size: 20
+      minimum-idle: 20
+      connection-timeout: 10000
+
+  jpa:
+    open-in-view: false   # evita que a sessao fique aberta na view e esconda o N+1
+    hibernate:
+      ddl-auto: none      # o schema vem dos scripts em db/, nunca do Hibernate
+    properties:
+      hibernate:
+        generate_statistics: true     # habilita as metricas internas do Hibernate
+        format_sql: true
+        jdbc:
+          batch_size: 50
+        # default_batch_fetch_size NAO e global de proposito: o batch fetching
+        # e demonstrado apenas no endpoint /api/pedidos/batch (FASE 4) via @BatchSize.
+
+  data:
+    redis:
+      host: localhost
+      port: 16379
+      timeout: 2000ms
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 32
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: always
+
+app:
+  cache:
+    # TTL curto no produto: preco/estoque sao volateis -> limita a janela de dado velho.
+    ttl-produto: 60s
+    # TTL longo na categoria: baixa volatilidade -> pode ficar muito tempo em cache.
+    ttl-categoria: 10m
+    # Ligado por padrao. O profile "cache-sem-invalidacao" desliga o @CacheEvict
+    # para demonstrar o risco de dado desatualizado (exigencia do item 3.4).
+    invalidacao-ativa: true
+
+logging:
+  level:
+    root: INFO
+    br.uva.aos: INFO
+    # Logar SQL distorce a medicao de carga: so e ligado no profile sql-log.
+    net.ttddyy.dsproxy.listener: WARN
+
+---
+# Profile sql-log: imprime o SQL de cada requisicao. USAR SO EM DEMONSTRACAO,
+# jamais durante os testes k6 (o custo de I/O do log mascara o ganho real).
+spring:
+  config:
+    activate:
+      on-profile: sql-log
+logging:
+  level:
+    br.uva.aos.diag: DEBUG
+    net.ttddyy.dsproxy.listener: DEBUG
+
+---
+# Profile cache-sem-invalidacao: mantem o cache mas remove a invalidacao ativa.
+# Serve para mostrar que, apos um PUT, a leitura devolve o preco ANTIGO ate o TTL expirar.
+spring:
+  config:
+    activate:
+      on-profile: cache-sem-invalidacao
+app:
+  cache:
+    invalidacao-ativa: false

@@ -1,0 +1,68 @@
+# Infra do Trabalho A2: Postgres 16 + Redis 7.
+# Recursos LIMITADOS de proposito: sem teto fixo de CPU/memoria os testes de carga
+# ficam incomparaveis entre execucoes (o Docker daria mais CPU numa rodada que noutra).
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: a2-postgres
+    environment:
+      POSTGRES_DB: vendas
+      POSTGRES_USER: a2
+      POSTGRES_PASSWORD: a2pass
+      # Tuning minimo e FIXO -> planos de execucao estaveis entre rodadas
+      POSTGRES_INITDB_ARGS: "--data-checksums"
+    command: >
+      postgres
+      -c shared_buffers=256MB
+      -c effective_cache_size=768MB
+      -c work_mem=8MB
+      -c max_connections=200
+      -c random_page_cost=1.1
+      -c track_io_timing=on
+    ports:
+      # 55432 no host: a porta 5432 pode ja estar ocupada por um Postgres local
+      # instalado na maquina -- e a aplicacao conectaria no banco ERRADO.
+      - "55432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      # Apenas 01/02 rodam na inicializacao. Os scripts 10/11 (indices) sao
+      # aplicados manualmente pelos experimentos, nunca no boot.
+      - ./db/01-schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./db/02-seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+      - ./db:/db:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U a2 -d vendas"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 1536M
+
+  redis:
+    image: redis:7-alpine
+    container_name: a2-redis
+    command: >
+      redis-server
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+      --appendonly no
+      --save ""
+    ports:
+      # 16379 por simetria: evita colidir com um Redis local
+      - "16379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    deploy:
+      resources:
+        limits:
+          cpus: "1.0"
+          memory: 384M
+
+volumes:
+  pgdata:
